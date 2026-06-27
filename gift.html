@@ -17,25 +17,26 @@
 }
 
 body{
-
     font-family:'Poppins',sans-serif;
     background:linear-gradient(135deg,#ff6b9d,#ffc2d1,#ffe5ec);
-    overflow:hidden;
+    color:white;
+    overflow-x:hidden;
+    overflow-y:auto;
+    min-height:100vh;
     display:flex;
     justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    color:white;
-
+    align-items:flex-start;
+    padding:30px 20px;
 }
 
 /* Floating Hearts */
 
 .hearts span{
-    position:absolute;
+    position:fixed;
     bottom:-100px;
     font-size:25px;
     animation:float 8s linear infinite;
+    z-index:1;
 }
 
 .hearts span:nth-child(1){left:10%;animation-delay:0s;}
@@ -65,8 +66,10 @@ opacity:0;
 .container{
 
 width:100%;
-padding:20px;
+max-width:700px;
 text-align:center;
+position:relative;
+z-index:2;
 
 }
 
@@ -80,19 +83,17 @@ margin-bottom:15px;
 
 .subtitle{
 
-margin-bottom:40px;
+margin-bottom:35px;
 font-size:18px;
 
 }
-
-/* Gift */
 
 .gift{
 
 font-size:120px;
 cursor:pointer;
-transition:.5s;
 animation:bounce 2s infinite;
+transition:.4s;
 
 }
 
@@ -118,47 +119,55 @@ transform:translateY(-15px);
 
 display:none;
 
-margin-top:30px;
+margin-top:35px;
 
 background:rgba(255,255,255,.18);
 
-backdrop-filter:blur(15px);
+backdrop-filter:blur(18px);
 
 padding:25px;
 
-border-radius:20px;
+border-radius:25px;
+
+text-align:left;
 
 line-height:2;
 
-animation:fade .8s;
+box-shadow:0 15px 35px rgba(0,0,0,.2);
+
+animation:fade .8s ease;
 
 }
 
 @keyframes fade{
 
 from{
-
 opacity:0;
 transform:translateY(20px);
-
 }
 
 to{
-
 opacity:1;
 transform:translateY(0);
+}
 
 }
+
+#message h2{
+
+text-align:center;
+margin-bottom:20px;
+font-size:30px;
 
 }
 
 button{
 
-margin-top:30px;
-
 width:100%;
 
 padding:18px;
+
+margin-top:30px;
 
 border:none;
 
@@ -172,19 +181,33 @@ font-size:18px;
 
 font-weight:bold;
 
+cursor:pointer;
+
 display:none;
 
-cursor:pointer;
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.03);
+
+background:#fff0f5;
 
 }
 
 .confetti{
 
-position:absolute;
+position:fixed;
+
+top:-50px;
 
 font-size:22px;
 
-animation:fall 3s linear forwards;
+animation:fall linear forwards;
+
+z-index:999;
 
 }
 
@@ -198,6 +221,40 @@ opacity:1;
 100%{
 transform:translateY(120vh) rotate(720deg);
 opacity:0;
+}
+
+}
+
+@media(max-width:600px){
+
+h1{
+
+font-size:46px;
+
+}
+
+.subtitle{
+
+font-size:16px;
+
+}
+
+.gift{
+
+font-size:100px;
+
+}
+
+#message h2{
+
+font-size:24px;
+
+}
+
+#message{
+
+font-size:15px;
+
 }
 
 }
@@ -230,21 +287,33 @@ Tap the gift below to open your surprise.
 
 <div id="message">
 
-<h2 style="margin-bottom:20px;">Happy Birthday, My Akobabe ❤️</h2>
+<h2>Happy Birthday, My Akobabe ❤️</h2>
 
 <p>
 
 This gift box may look small, but what it carries is much bigger than anything money can buy.
 
+<br><br>
+
 My greatest gift to you is my heart.
+
+<br><br>
 
 I promise to keep loving you, supporting you, praying for you, and standing beside you through every season of life.
 
-Thank you for being my peace, my happiness, my biggest motivation, and my favorite person.
+<br><br>
+
+Thank you for being my peace, my happiness, my biggest motivation, and my favourite person.
+
+<br><br>
 
 I pray that this new year brings you joy, success, good health, countless blessings, and everything your heart desires.
 
-Never forget this...
+<br><br>
+
+No matter what happens in life, I want you to remember one thing...
+
+<br><br>
 
 <strong>You are deeply loved.</strong>
 
@@ -268,13 +337,24 @@ const gift=document.getElementById("gift");
 const message=document.getElementById("message");
 const next=document.getElementById("nextBtn");
 
-gift.onclick=function(){
+gift.addEventListener("click",function(){
 
 gift.innerHTML="💝";
+gift.style.pointerEvents="none";
 
 message.style.display="block";
-
 next.style.display="block";
+
+setTimeout(()=>{
+
+message.scrollIntoView({
+
+behavior:"smooth",
+block:"start"
+
+});
+
+},300);
 
 for(let i=0;i<60;i++){
 
@@ -282,7 +362,9 @@ let c=document.createElement("div");
 
 c.className="confetti";
 
-c.innerHTML=["🎉","❤️","💖","✨","🌸"][Math.floor(Math.random()*5)];
+const emojis=["🎉","❤️","💖","✨","🌸","💕"];
+
+c.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
 
 c.style.left=Math.random()*100+"vw";
 
@@ -290,11 +372,15 @@ c.style.animationDuration=(Math.random()*2+2)+"s";
 
 document.body.appendChild(c);
 
-setTimeout(()=>c.remove(),3000);
+setTimeout(()=>{
+
+c.remove();
+
+},4000);
 
 }
 
-}
+});
 
 </script>
 

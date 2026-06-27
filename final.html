@@ -16,16 +16,29 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
 
     font-family:'Poppins',sans-serif;
+
     background:linear-gradient(135deg,#ff6b9d,#ffc2d1,#ffe5ec);
-    overflow:hidden;
+
+    color:white;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    min-height:100vh;
+
     display:flex;
     justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    color:white;
+    align-items:flex-start;
+
+    padding:30px 15px;
+
     position:relative;
 
 }
@@ -34,18 +47,23 @@ body{
 
 .hearts span{
 
-    position:absolute;
+    position:fixed;
+
     bottom:-100px;
+
     font-size:28px;
+
     animation:float 8s linear infinite;
+
+    z-index:1;
 
 }
 
 .hearts span:nth-child(1){left:8%;animation-delay:0s;}
 .hearts span:nth-child(2){left:25%;animation-delay:2s;}
-.hearts span:nth-child(3){left:50%;animation-delay:4s;}
-.hearts span:nth-child(4){left:72%;animation-delay:1s;}
-.hearts span:nth-child(5){left:92%;animation-delay:3s;}
+.hearts span:nth-child(3){left:45%;animation-delay:4s;}
+.hearts span:nth-child(4){left:70%;animation-delay:1s;}
+.hearts span:nth-child(5){left:90%;animation-delay:3s;}
 
 @keyframes float{
 
@@ -71,28 +89,33 @@ opacity:0;
 
 }
 
-/* Card */
+/* Main Card */
 
 .card{
 
-width:92%;
-max-width:420px;
+    width:100%;
 
-background:rgba(255,255,255,.18);
+    max-width:750px;
 
-backdrop-filter:blur(18px);
+    background:rgba(255,255,255,.18);
 
-border-radius:30px;
+    backdrop-filter:blur(18px);
 
-padding:35px 25px;
+    border-radius:30px;
 
-text-align:center;
+    padding:35px 25px;
 
-box-shadow:0 20px 40px rgba(0,0,0,.25);
+    text-align:center;
 
-z-index:10;
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
 
-animation:fadeIn 1.5s;
+    animation:fadeIn 1.2s;
+
+    position:relative;
+
+    z-index:5;
+
+    margin-bottom:40px;
 
 }
 
@@ -101,7 +124,7 @@ animation:fadeIn 1.5s;
 from{
 
 opacity:0;
-transform:translateY(30px);
+transform:translateY(40px);
 
 }
 
@@ -117,13 +140,15 @@ transform:translateY(0);
 h1{
 
 font-family:'Great Vibes',cursive;
-font-size:58px;
+
+font-size:60px;
 
 }
 
 h2{
 
 margin-top:10px;
+
 font-size:30px;
 
 }
@@ -132,7 +157,7 @@ font-size:30px;
 
 font-size:90px;
 
-margin:20px 0;
+margin:25px 0;
 
 animation:beat 1s infinite;
 
@@ -141,46 +166,54 @@ animation:beat 1s infinite;
 @keyframes beat{
 
 0%{transform:scale(1);}
-50%{transform:scale(1.2);}
+50%{transform:scale(1.25);}
 100%{transform:scale(1);}
 
 }
 
 .message{
 
-margin-top:15px;
+margin-top:20px;
 
-line-height:1.9;
+font-size:17px;
 
-font-size:16px;
+line-height:2;
 
 text-align:left;
 
 }
 
+.message p{
+
+margin-bottom:18px;
+
+}
+
 .signature{
 
-margin-top:30px;
+margin-top:35px;
 
-font-size:20px;
+text-align:center;
+
+font-size:22px;
 
 font-weight:bold;
 
-text-align:center;
+line-height:1.8;
 
 }
 
 .restartBtn{
 
-margin-top:25px;
-
 width:100%;
 
-padding:16px;
+margin-top:35px;
+
+padding:18px;
 
 border:none;
 
-border-radius:40px;
+border-radius:50px;
 
 background:white;
 
@@ -198,15 +231,15 @@ transition:.3s;
 
 .restartBtn:hover{
 
-transform:scale(1.05);
+transform:scale(1.03);
 
-background:#fff0f5;
+background:#fff3f7;
 
 }
 
 .footer{
 
-margin-top:20px;
+margin-top:25px;
 
 font-size:14px;
 
@@ -218,13 +251,17 @@ opacity:.9;
 
 .confetti{
 
-position:absolute;
+position:fixed;
 
-top:-40px;
+top:-50px;
 
-font-size:22px;
+font-size:24px;
 
 animation:fall linear forwards;
+
+pointer-events:none;
+
+z-index:999;
 
 }
 
@@ -260,13 +297,27 @@ font-size:48px;
 
 h2{
 
-font-size:25px;
+font-size:24px;
+
+}
+
+.heart{
+
+font-size:75px;
 
 }
 
 .message{
 
 font-size:15px;
+
+line-height:1.9;
+
+}
+
+.signature{
+
+font-size:19px;
 
 }
 
@@ -299,46 +350,56 @@ font-size:15px;
 <div class="message">
 
 <p>
-
 My Dearest Akobabe,
+</p>
 
-<br><br>
-
+<p>
 You've reached the end of this little surprise, but you've not reached the end of my love for you.
+</p>
 
-Every page, every word, every animation, every picture, and every line of code was created with one person in mind—you.
+<p>
+Every page, every picture, every animation, every line of code, and every word was made with one special person in mind—you.
+</p>
 
-I wanted to give you something that wasn't bought from a shop, but something I built with my own hands and my whole heart.
+<p>
+I wanted to give you something different this year. Instead of buying another ordinary gift, I decided to build one with my own hands using the little knowledge I have as an I.T. student. Every moment I spent creating this website, I was thinking about your smile and hoping it would make your birthday even more special.
+</p>
 
-Thank you for being my happiness, my safe place, my biggest supporter, and one of the greatest blessings God has given me.
+<p>
+Thank you for loving me, believing in me, encouraging me, and standing beside me even when life isn't always easy. I know we sometimes have misunderstandings, but my heart has never stopped choosing you.
+</p>
 
-I know we're not perfect, and we still have things to learn about each other, but one thing I'll never stop doing is choosing you.
+<p>
+You're one of the greatest blessings God has ever given me. You make me smile when I'm stressed, you give me peace when my mind is full, and you remind me that I'm never alone.
+</p>
 
-I pray that this new year brings you endless joy, peace, good health, success, favour, and beautiful memories.
+<p>
+I pray that this new year of your life will be filled with endless joy, laughter, peace, good health, success, open doors, and God's favour. May every dream you've shared with me become reality, and may your beautiful smile never fade.
+</p>
 
-May God continue to guide your steps, protect your heart, and make every dream you've shared with me become a reality.
+<p>
+Always remember...
+</p>
 
-Never forget...
+<p style="text-align:center;font-size:22px;font-weight:bold;">
+❤️ You are loved. ❤️
+</p>
 
-<b>You are loved.</b>
-
-Not just today.
-
-Not just on your birthday.
-
+<p style="text-align:center;">
+Not just today.<br>
+Not just on your birthday.<br>
 But every single day.
+</p>
 
-❤️
-
+<p style="text-align:center;font-size:20px;">
+Happy Birthday once again, my Akobabe. ❤️
 </p>
 
 </div>
 
 <div class="signature">
 
-Forever Yours,
-
-<br><br>
+Forever Yours,<br>
 
 ❤️ Fred ❤️
 
@@ -364,33 +425,33 @@ const emojis=["❤️","💕","💖","✨","🎉","🌸"];
 
 function createConfetti(){
 
-    for(let i=0;i<80;i++){
+    for(let i=0;i<100;i++){
 
-        let c=document.createElement("div");
+        const confetti=document.createElement("div");
 
-        c.className="confetti";
+        confetti.className="confetti";
 
-        c.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+        confetti.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
 
-        c.style.left=Math.random()*100+"vw";
+        confetti.style.left=Math.random()*100+"vw";
 
-        c.style.animationDuration=(Math.random()*3+2)+"s";
+        confetti.style.animationDuration=(Math.random()*3+2)+"s";
 
-        c.style.animationDelay=Math.random()*2+"s";
+        confetti.style.animationDelay=Math.random()*2+"s";
 
-        document.body.appendChild(c);
+        document.body.appendChild(confetti);
 
         setTimeout(()=>{
 
-            c.remove();
+            confetti.remove();
 
-        },5000);
+        },6000);
 
     }
 
 }
 
-createConfetti();
+window.onload=createConfetti;
 
 </script>
 

@@ -1,37 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Forever Yours ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
 
-font-family:'Poppins',sans-serif;
-
-background:linear-gradient(135deg,#ff5e99,#ff9bb8,#ffe5ec);
-
-overflow:hidden;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-min-height:100vh;
-
-color:white;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ff6b9d,#ffc2d1,#ffe5ec);
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    color:white;
+    position:relative;
 
 }
 
@@ -39,21 +34,18 @@ color:white;
 
 .hearts span{
 
-position:absolute;
-
-bottom:-100px;
-
-font-size:28px;
-
-animation:float 9s linear infinite;
+    position:absolute;
+    bottom:-100px;
+    font-size:28px;
+    animation:float 8s linear infinite;
 
 }
 
-.hearts span:nth-child(1){left:10%;animation-delay:0s;}
+.hearts span:nth-child(1){left:8%;animation-delay:0s;}
 .hearts span:nth-child(2){left:25%;animation-delay:2s;}
-.hearts span:nth-child(3){left:45%;animation-delay:4s;}
-.hearts span:nth-child(4){left:70%;animation-delay:1s;}
-.hearts span:nth-child(5){left:90%;animation-delay:3s;}
+.hearts span:nth-child(3){left:50%;animation-delay:4s;}
+.hearts span:nth-child(4){left:72%;animation-delay:1s;}
+.hearts span:nth-child(5){left:92%;animation-delay:3s;}
 
 @keyframes float{
 
@@ -79,6 +71,8 @@ opacity:0;
 
 }
 
+/* Card */
+
 .card{
 
 width:92%;
@@ -88,41 +82,49 @@ background:rgba(255,255,255,.18);
 
 backdrop-filter:blur(18px);
 
-padding:35px 25px;
-
 border-radius:30px;
+
+padding:35px 25px;
 
 text-align:center;
 
-box-shadow:0 20px 40px rgba(0,0,0,.2);
+box-shadow:0 20px 40px rgba(0,0,0,.25);
 
 z-index:10;
+
+animation:fadeIn 1.5s;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
 
 }
 
 h1{
 
 font-family:'Great Vibes',cursive;
-
-font-size:60px;
-
-margin-bottom:15px;
+font-size:58px;
 
 }
 
 h2{
 
-font-size:28px;
-
-margin-bottom:25px;
-
-}
-
-p{
-
-line-height:2;
-
-font-size:16px;
+margin-top:10px;
+font-size:30px;
 
 }
 
@@ -130,7 +132,7 @@ font-size:16px;
 
 font-size:90px;
 
-margin:25px 0;
+margin:20px 0;
 
 animation:beat 1s infinite;
 
@@ -144,6 +146,18 @@ animation:beat 1s infinite;
 
 }
 
+.message{
+
+margin-top:15px;
+
+line-height:1.9;
+
+font-size:16px;
+
+text-align:left;
+
+}
+
 .signature{
 
 margin-top:30px;
@@ -151,6 +165,42 @@ margin-top:30px;
 font-size:20px;
 
 font-weight:bold;
+
+text-align:center;
+
+}
+
+.restartBtn{
+
+margin-top:25px;
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:40px;
+
+background:white;
+
+color:#ff4d88;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.restartBtn:hover{
+
+transform:scale(1.05);
+
+background:#fff0f5;
 
 }
 
@@ -170,7 +220,7 @@ opacity:.9;
 
 position:absolute;
 
-top:-30px;
+top:-40px;
 
 font-size:22px;
 
@@ -198,6 +248,30 @@ opacity:0;
 
 }
 
+/* Mobile */
+
+@media(max-width:600px){
+
+h1{
+
+font-size:48px;
+
+}
+
+h2{
+
+font-size:25px;
+
+}
+
+.message{
+
+font-size:15px;
+
+}
+
+}
+
 </style>
 
 </head>
@@ -220,49 +294,61 @@ opacity:0;
 
 <h2>My Beautiful Akobabe ❤️</h2>
 
-<div class="heart">
-❤️
-</div>
+<div class="heart">❤️</div>
+
+<div class="message">
 
 <p>
 
-You've reached the end of this little surprise, but not the end of my love for you.
+My Dearest Akobabe,
 
 <br><br>
 
-Thank you for taking the time to go through every page. Every word, every picture, and every little animation was made with you in mind.
+You've reached the end of this little surprise, but you've not reached the end of my love for you.
 
-<br><br>
+Every page, every word, every animation, every picture, and every line of code was created with one person in mind—you.
 
-No matter what life brings us, I pray we continue choosing each other, supporting each other, and growing together.
+I wanted to give you something that wasn't bought from a shop, but something I built with my own hands and my whole heart.
 
-<br><br>
+Thank you for being my happiness, my safe place, my biggest supporter, and one of the greatest blessings God has given me.
 
-Thank you for being my happiness, my peace, my biggest motivation, and my best friend.
+I know we're not perfect, and we still have things to learn about each other, but one thing I'll never stop doing is choosing you.
 
-<br><br>
+I pray that this new year brings you endless joy, peace, good health, success, favour, and beautiful memories.
 
-May God bless you with good health, endless happiness, success, favor, and many beautiful years ahead.
-
-<br><br>
+May God continue to guide your steps, protect your heart, and make every dream you've shared with me become a reality.
 
 Never forget...
 
-<strong>You are deeply loved.</strong>
+<b>You are loved.</b>
+
+Not just today.
+
+Not just on your birthday.
+
+But every single day.
 
 ❤️
 
 </p>
 
+</div>
+
 <div class="signature">
 
 Forever Yours,
 
-<br>
+<br><br>
 
-Fred ❤️
+❤️ Fred ❤️
 
 </div>
+
+<button class="restartBtn" onclick="window.location.href='index.html'">
+
+❤️ Experience It Again
+
+</button>
 
 <div class="footer">
 
@@ -276,23 +362,35 @@ Made with ❤️ especially for Akobabe
 
 const emojis=["❤️","💕","💖","✨","🎉","🌸"];
 
-for(let i=0;i<80;i++){
+function createConfetti(){
 
-let confetti=document.createElement("div");
+    for(let i=0;i<80;i++){
 
-confetti.className="confetti";
+        let c=document.createElement("div");
 
-confetti.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+        c.className="confetti";
 
-confetti.style.left=Math.random()*100+"vw";
+        c.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
 
-confetti.style.animationDuration=(Math.random()*3+2)+"s";
+        c.style.left=Math.random()*100+"vw";
 
-confetti.style.animationDelay=Math.random()*2+"s";
+        c.style.animationDuration=(Math.random()*3+2)+"s";
 
-document.body.appendChild(confetti);
+        c.style.animationDelay=Math.random()*2+"s";
+
+        document.body.appendChild(c);
+
+        setTimeout(()=>{
+
+            c.remove();
+
+        },5000);
+
+    }
 
 }
+
+createConfetti();
 
 </script>
 
